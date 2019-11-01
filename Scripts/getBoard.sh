@@ -14,4 +14,4 @@ sed -i 's/{"board":\[\[//' $savepath
 sed -i 's/]]}//' $savepath
 sed -i 's/,//g' $savepath
 
-./main.o $savepath
+./Sudoku.o $savepath

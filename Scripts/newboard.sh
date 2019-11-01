@@ -1,20 +1,20 @@
 #!/bin/bash
-if [ -z "$var" ]
+if [ -z "$1" ]
 then
-      echo "\$var is empty"
+      fname="newboard.txt"
 else
-      echo "\$var is NOT empty"
+      fname="$1"
 fi
-fname="newboard.txt"
-touch "Boards/$fname"
-echo "*********" > "Boards/$fname"
-echo "*********" >> "Boards/$fname"
-echo "*********" >> "Boards/$fname"
-echo "*********" >> "Boards/$fname"
-echo "*********" >> "Boards/$fname"
-echo "*********" >> "Boards/$fname"
-echo "*********" >> "Boards/$fname"
-echo "*********" >> "Boards/$fname"
-echo "*********" >> "Boards/$fname"
-vim "Boards/$fname"
+var="/home/archer/Projects/Small/Sudoku/Boards/$fname"
+touch "$var"
+echo "*********" > "$var"
+echo "*********" >> "$var"
+echo "*********" >> "$var"
+echo "*********" >> "$var"
+echo "*********" >> "$var"
+echo "*********" >> "$var"
+echo "*********" >> "$var"
+echo "*********" >> "$var"
+echo "*********" >> "$var"
+vim "$var"
 

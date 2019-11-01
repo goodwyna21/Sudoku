@@ -11,7 +11,7 @@ using namespace std;
 #define select 4
 #define placed 5
 
-const string FNAME = "Boards/Medium.txt";
+const string FNAME = "Boards/newboard.txt";
 
 struct Cell{
     int n;
@@ -320,28 +320,28 @@ int main(int argc, char* argv[]){
     int inp;
     while(true){
         inp = getch();
-        if(inp == KEY_UP){
+        if(inp == KEY_UP || inp == 'w'){
             b.board[cursx][cursy].draw();
             if(cursy > 0){
                 cursy--;
             }
             b.board[cursx][cursy].draw_select();
         }
-        if(inp == KEY_DOWN){
+        if(inp == KEY_DOWN || inp == 's'){
             b.board[cursx][cursy].draw();
             if(cursy < 8){
                 cursy++;
             }
             b.board[cursx][cursy].draw_select();
         }
-        if(inp == KEY_LEFT){
+        if(inp == KEY_LEFT || inp == 'a'){
             b.board[cursx][cursy].draw();
             if(cursx > 0){
                 cursx--;
             }
             b.board[cursx][cursy].draw_select();
         }
-        if(inp == KEY_RIGHT){
+        if(inp == KEY_RIGHT || inp == 'd'){
             b.board[cursx][cursy].draw();
             if(cursx < 8){
                 cursx++;
@@ -377,14 +377,16 @@ int main(int argc, char* argv[]){
                 b.add(fnd+1,cursx,cursy);
             }
         }
-        if(inp == 't'){
+        if(inp == 't' || inp == 'e'){
             noteToggle=!noteToggle;
             attron(COLOR_PAIR(noteToggle?filled:blank));
             mvaddstr(0,36,"Note Mode");
             attroff(COLOR_PAIR(noteToggle?filled:blank));
         }
-        if(inp == 'a'){
+        if(inp == 'x'){
             b.autoadd();
+            cursx = b.placedx;
+            cursy = b.placedy;
         }
         if(string("123456789").find(inp)!=string::npos){
             if(noteToggle){
